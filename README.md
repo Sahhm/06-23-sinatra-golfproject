@@ -31,19 +31,19 @@ Each round of golf will have a golfer's id and a course id associated with it.  
   
   
   
- [ ] Should be able to filter the individual rounds table to show all rounds for a given course, and then sort scores from lowest to highest to give a leaderboard.
+ - [ ] Should be able to filter the individual rounds table to show all rounds for a given course, and then sort scores from lowest to highest to give a leaderboard.
   
- [ ] Should be able to filter individual rounds table by individual golfers to show personal bests.
+ - [ ] Should be able to filter individual rounds table by individual golfers to show personal bests.
   
- [ ] Should not be able to enter a course with a 9 hole par lower than 27 or higher than 40.
+ - [ ] Should not be able to enter a course with a 9 hole par lower than 27 or higher than 40.
   
- [ ] Should not be able to enter 9 hole scores for individual rounds lower than 9.
+ - [ ] Should not be able to enter 9 hole scores for individual rounds lower than 9.
   
- [ ] Should not be able to enter a golf course without a name/pars.
+ - [ ] Should not be able to enter a golf course without a name/pars.
   
- [ ] Should not be able to create a user without entering at least one round of golf.
+ - [ ] Should not be able to create a user without entering at least one round of golf.
   
- [ ] Should be able to create new courses even if no one has or will play them.
+ - [ ] Should be able to create new courses even if no one has or will play them.
   
   (can't decide if I should allow changing of rounds that have already been entered.)
   
