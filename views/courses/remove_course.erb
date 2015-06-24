@@ -1,0 +1,17 @@
+Which golf course would you like to remove?
+
+<ul>
+   <% Course.all_as_objects.each do |single| %>
+     <li>Course ID -<%= single.id %>  Location -<%=single.name%></li>
+   <% end %>
+</ul>
+
+<form action="/remove_single_course">
+  <select name="course_id">
+    <% Course.all_as_objects.each do |single| %>
+      <option value="<%= single.id %>"><%= single.id %></option>
+    <% end %>
+  </select>
+  
+  <input type="submit">
+</form>

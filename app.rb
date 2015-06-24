@@ -16,3 +16,4 @@ require_relative "controllers/main.rb"
 require_relative "controllers/outings.rb"
 require_relative "controllers/golfers.rb"
 require_relative "controllers/courses.rb"
+

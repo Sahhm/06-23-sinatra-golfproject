@@ -1,0 +1,12 @@
+<ul>
+  <% Course.all_as_objects.each do |single| %>
+
+    <%if single.id == params["course_id"].to_i%>
+      <li>Course ID -<%= single.id %>  Course Name -<%=single.name%>  Front 9 Par -<%=single.front_9_par%>  Back 9 Par -<%=single.back_9_par%></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<ul>
+  <a href="/homepage">Home</a>
+</ul>

@@ -1,12 +1,17 @@
-
+require_relative "ClassMethods.rb"
+require_relative "InstanceMethods.rb"
 
 class Course
+  
+  extend DatabaseClassMethods
+  include DatabaseInstanceMethods
   
   attr_reader :id
   attr_accessor :name, :front_9_par, :back_9_par
   
   
   def initialize(course_options={})
+    @id = course_options["id"]
     @name = course_options["name"]
     @front_9_par = course_options["front_9_par"]
     @back_9_par = course_options["back_9_par"]
@@ -19,4 +24,29 @@ class Course
           
    
   end
+  
+  def self.remove_object(course_id)
+    
+    CONNECTION.execute("SELECT * FROM courses WHERE id = #{course_id};")
+    
+  end
+  
+  def self.all_as_objects
+    
+    results = Course.all
+    
+    results_as_objects = []
+    
+    results.each do |result_hash|
+    
+      results_as_objects << Course.new(result_hash)
+   
+    
+    end
+    
+    return results_as_objects
+    
+    
+  end
+  
 end

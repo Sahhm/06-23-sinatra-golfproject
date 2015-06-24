@@ -1,0 +1,11 @@
+All Courses
+
+<ul>
+   <% Course.all_as_objects.each do |course| %>
+     <li>Course ID -<%= course.id %>  Course Name -<%=course.name%>  Front 9 Par -<%=course.front_9_par%>  Back 9 Par -<%=course.back_9_par%></li>
+   <% end %>
+</ul>
+
+<ul>
+  <a href="/homepage">Home</a>
+</ul>
