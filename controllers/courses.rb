@@ -8,9 +8,9 @@ get "/add_course" do
   
   
   course_object = Course.new
-  id = nil
   
-  course_object.add_to_database(id, params["name"], params["front"].to_i, params["back"].to_i)
+  
+  course_object.add_to_database(params["name"], params["front"].to_i, params["back"].to_i)
   
 
   
