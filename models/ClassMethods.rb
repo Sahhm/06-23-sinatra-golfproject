@@ -12,11 +12,11 @@ module DatabaseClassMethods
     
   end
   
-  def remove(course_id)
+  def remove(this_id)
     
-      table_name = self.to_s.pluralize.downcase
+    table_name = self.to_s.pluralize.downcase
       
-      CONNECTION.execute("DELETE FROM #{table_name} WHERE id = #{course_id};")
+    CONNECTION.execute("DELETE FROM #{table_name} WHERE id = #{this_id};")
     
   end
   

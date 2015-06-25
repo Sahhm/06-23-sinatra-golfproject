@@ -33,9 +33,6 @@ get "/remove_single_course" do
   erb :"courses/remove_single_course"
 end
 
-
-
-
 get "/add_course_form" do
   
   erb :"courses/add_course_form"
