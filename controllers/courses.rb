@@ -43,12 +43,8 @@ end
 
 get "/change_app/:x" do
   
-  @entry = Course.find(params["x"].to_i)
-  name = params["name"] 
-  front_9_par = params["front_9_par"].to_i
-  back_9_par = params["back_9_par"].to_i
-  binding.pry
-  @entry.save
+  Course.save(params["name"], params["front_9_par"].to_i, params["back_9_par"].to_i, params["x"].to_i)
+ 
   erb :"courses/save_success"
 end
 

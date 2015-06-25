@@ -31,9 +31,9 @@ class Course
     
   end
   
-  def self.save
-      CONNECTION.execute("UPDATE courses SET name = '#{self.name}', front_9_par = #{self.front_9_par},
-       back_9_par = #{self.back_9_par} WHERE id = #{self.id};")
+  def self.save(new_name, front, back, course_id)
+      CONNECTION.execute("UPDATE courses SET name = '#{new_name}', front_9_par = #{front},
+       back_9_par = #{back} WHERE id = #{course_id};")
      
        return self
     end
