@@ -31,6 +31,15 @@ class Course
     
   end
   
+  def self.save
+      CONNECTION.execute("UPDATE courses SET name = '#{self.name}', front_9_par = #{self.front_9_par},
+       back_9_par = #{self.back_9_par} WHERE id = #{self.id};")
+     
+       return self
+    end
+  
+  
+  
   def self.all_as_objects
     
     results = Course.all

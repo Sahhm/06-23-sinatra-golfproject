@@ -33,6 +33,25 @@ get "/remove_single_course" do
   erb :"courses/remove_single_course"
 end
 
+get "/update_course_form" do
+  erb :"courses/update_course_form"
+end
+
+get "/update_course" do
+  erb :"courses/update_course"
+end
+
+get "/change_app/:x" do
+  
+  @entry = Course.find(params["x"].to_i)
+  name = params["name"] 
+  front_9_par = params["front_9_par"].to_i
+  back_9_par = params["back_9_par"].to_i
+  binding.pry
+  @entry.save
+  erb :"courses/save_success"
+end
+
 get "/add_course_form" do
   
   erb :"courses/add_course_form"
