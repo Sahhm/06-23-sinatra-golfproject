@@ -27,16 +27,8 @@ module DatabaseClassMethods
   def find(id)
     
     table_name = self.to_s.pluralize
-    
-    results = CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{id};")
-    results_as_objects = []
-    
-    results.each do |result_hash|
-    
-    results_as_objects << Course.new(result_hash)
-    
-    end
-    return results_as_objects
+    CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{id};").first
+   
   end
   
   #method pluralizes a class' name into a table name
