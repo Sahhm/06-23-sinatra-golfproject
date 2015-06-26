@@ -17,6 +17,8 @@ class Course
     @back_9_par = course_options["back_9_par"]
   end
   
+  
+  #method uses 3 arguments to insert new items to database
   def add_to_database(name, front, back)
     
     CONNECTION.execute("INSERT INTO courses (name, front_9_par, back_9_par) VALUES ('#{name}', #{front}, #{back});")
@@ -25,12 +27,14 @@ class Course
    
   end
   
-  def self.remove_object(course_id)
-    
-    CONNECTION.execute("SELECT * FROM courses WHERE id = #{course_id};")
-    
-  end
+  # def self.remove_object(course_id)
+#
+#     CONNECTION.execute("SELECT * FROM courses WHERE id = #{course_id};")
+#
+#   end
   
+  
+  #method turns new inputs into arguments to update a single line of a database
   def self.save(new_name, front, back, course_id)
       CONNECTION.execute("UPDATE courses SET name = '#{new_name}', front_9_par = #{front},
        back_9_par = #{back} WHERE id = #{course_id};")
@@ -39,7 +43,7 @@ class Course
     end
   
   
-  
+    #returns a database table's contents as objects
   def self.all_as_objects
     
     results = Course.all
