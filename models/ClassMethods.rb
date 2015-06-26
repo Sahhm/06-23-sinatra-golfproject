@@ -13,7 +13,8 @@ module DatabaseClassMethods
   def find(id)
     
     table_name = self.to_s.pluralize
-    CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{id};").first
+    
+    self.new(CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{id};").first)
    
   end
    
@@ -31,11 +32,9 @@ module DatabaseClassMethods
     
       results_as_objects << Course.new(result_hash)
    
-    
     end
     
-      return results_as_objects
-    
+    return results_as_objects
     
   end
 
@@ -44,9 +43,9 @@ module DatabaseClassMethods
   #then removes item from table corresponding to argument
   def remove(this_id)
     
-      table_name = self.to_s.pluralize
+    table_name = self.to_s.pluralize
     
-      CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{this_id};")
+    CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{this_id};")
     
   end
   
@@ -57,13 +56,13 @@ module DatabaseClassMethods
 
 
     column_names = options.keys
-
+      
     values = options.values
-
+      
     column_names_for_sql = column_names.join(", ")
-
+      
     individual_values_for_sql = []
-
+      
     values.each do |value|
       if value.is_a?(String)
         individual_values_for_sql << "'#{value}'"
@@ -71,21 +70,21 @@ module DatabaseClassMethods
         individual_values_for_sql << value
       end
     end
-
+      
     values_for_sql = individual_values_for_sql.join(", ")
-
+      
     table_name = self.to_s.pluralize
-
-
-
+      
+      
+      
     results = CONNECTION.execute("INSERT INTO #{table_name} (#{column_names_for_sql}) VALUES (#{values_for_sql});")
-
-
+      
+      
     id = CONNECTION.last_insert_row_id
     options["id"] = id
-
+      
     self.new(options)
-
+      
 
   end
   

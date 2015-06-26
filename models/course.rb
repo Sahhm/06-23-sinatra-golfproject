@@ -24,10 +24,10 @@ class Course
   
   #method turns new inputs into arguments to update a single line of a database
   def self.save(new_name, front, back, course_id)
-      CONNECTION.execute("UPDATE courses SET name = '#{new_name}', front_9_par = #{front},
+    CONNECTION.execute("UPDATE courses SET name = '#{new_name}', front_9_par = #{front},
        back_9_par = #{back} WHERE id = #{course_id};")
      
-      return self
+    return self
   end
   
 end
