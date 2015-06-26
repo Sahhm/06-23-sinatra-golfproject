@@ -28,7 +28,7 @@ get "/remove_course" do
 end
 
 get "/remove_single_course" do
-  
+  binding.pry
   Course.remove(params["course_id"].to_i)
   
   erb :"courses/remove_single_course"

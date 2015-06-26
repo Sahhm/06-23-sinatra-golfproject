@@ -30,7 +30,7 @@ module DatabaseClassMethods
     
     results.each do |result_hash|
     
-      results_as_objects << Course.new(result_hash)
+      results_as_objects << self.new(result_hash)
    
     end
     
@@ -45,7 +45,7 @@ module DatabaseClassMethods
     
     table_name = self.to_s.pluralize
     
-    CONNECTION.execute("SELECT * FROM #{table_name} WHERE id = #{this_id};")
+    CONNECTION.execute("DELETE FROM #{table_name} WHERE id = #{this_id};")
     
   end
   

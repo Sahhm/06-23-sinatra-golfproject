@@ -7,6 +7,6 @@ get "/add_golfer" do
   golfer_options = {"name" => params["name"], "handicap" => 0}
   
   
-  Outing.add(golfer_options)
+  Golfer.add(golfer_options)
   erb :"/outings/add_outing_form"
 end
