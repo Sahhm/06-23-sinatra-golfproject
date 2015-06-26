@@ -75,14 +75,13 @@ module DatabaseClassMethods
       
     table_name = self.to_s.pluralize
       
-      
-      
+    
     results = CONNECTION.execute("INSERT INTO #{table_name} (#{column_names_for_sql}) VALUES (#{values_for_sql});")
       
       
     id = CONNECTION.last_insert_row_id
     options["id"] = id
-      
+    
     self.new(options)
       
 
