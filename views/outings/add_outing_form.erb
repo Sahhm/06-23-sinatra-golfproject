@@ -1,0 +1,20 @@
+<form action="/add_outing">
+  <select name="course_id">
+    <% Course.all_as_objects.each do |place| %>
+      <option value="<%= place.id %>"><%= place.name %></option>
+    <% end %>
+  </select>
+  <select name="golfer_id">
+    <% Golfer.all_as_objects.each do |golf| %>
+      <option value="<%= golf.id %>"><%= golf.name %></option>
+    <% end %>
+  </select>
+
+    <input type="numbers" placeholder="Enter Front 9 Score" name = "front">
+    <input type="numbers" placeholder="Enter Back 9 Score" name = "back">
+  
+   <br>
+   <p1><a href="/add_golfer_form">Add a new golfer</a></p1>
+    
+    <input type="submit">
+</form>
