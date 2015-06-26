@@ -9,57 +9,25 @@ class Course
   attr_reader :id
   attr_accessor :name, :front_9_par, :back_9_par
   
-  
+  #initializes a new course object
+  #sets object attributes to whatever was entered
   def initialize(course_options={})
+    
     @id = course_options["id"]
     @name = course_options["name"]
     @front_9_par = course_options["front_9_par"]
     @back_9_par = course_options["back_9_par"]
   end
   
-  
-  #method uses 3 arguments to insert new items to database
-  def add_to_database(name, front, back)
-    
-    CONNECTION.execute("INSERT INTO courses (name, front_9_par, back_9_par) VALUES ('#{name}', #{front}, #{back});")
-    @id = CONNECTION.last_insert_row_id
-          
-   
-  end
-  
-  # def self.remove_object(course_id)
-#
-#     CONNECTION.execute("SELECT * FROM courses WHERE id = #{course_id};")
-#
-#   end
-  
+
+
   
   #method turns new inputs into arguments to update a single line of a database
   def self.save(new_name, front, back, course_id)
       CONNECTION.execute("UPDATE courses SET name = '#{new_name}', front_9_par = #{front},
        back_9_par = #{back} WHERE id = #{course_id};")
      
-       return self
-    end
-  
-  
-    #returns a database table's contents as objects
-  def self.all_as_objects
-    
-    results = Course.all
-    
-    results_as_objects = []
-    
-    results.each do |result_hash|
-    
-      results_as_objects << Course.new(result_hash)
-   
-    
-    end
-    
-    return results_as_objects
-    
-    
+      return self
   end
   
 end

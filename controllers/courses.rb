@@ -15,6 +15,7 @@ get "/single_course" do
   
 end
 
+
 get "/show_single_course" do 
   @this_course = Course.find(params["course_id"])
   
@@ -54,8 +55,9 @@ get "/add_course_form" do
 end
 
 get "/add_course" do
-  course_object = Course.new
-  course_object.add_to_database(params["name"], params["front"].to_i, params["back"].to_i)
+  
+  course_options = {"name" => params["name"], "front_9_par" => params["front"].to_i, "back_9_par" => params["back"].to_i}
+  Course.add(course_options)
   
   erb :"courses/add_course"
 end
