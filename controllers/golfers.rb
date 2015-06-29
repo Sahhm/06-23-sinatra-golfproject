@@ -30,13 +30,13 @@ get "/update_golfer_form" do
 end
 
 get "/update_golfer" do
-  binding.pry
+  
   Golfer.save(params["name"], params["golfer_id"].to_i)
   erb :"/golfers/update_golfer"
 end
 
 get "/save_golfer/:x" do
-  \
+
  
   erb :"/golfers/save_success"
 end

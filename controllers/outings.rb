@@ -34,3 +34,13 @@ get "/delete_outing" do
   
   erb :"outings/delete_outing"
 end
+
+get "/update_outing_form" do
+  erb :"/outings/update_outing_form"
+end
+
+get "/update_outing" do
+  
+  Outing.save(params["front"].to_i, params["back"].to_i, params["golfer_id"].to_i)
+  erb :"/outings/update_outing"
+end

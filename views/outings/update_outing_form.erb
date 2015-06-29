@@ -1,0 +1,19 @@
+Which golfer would you like to update?
+
+<ul>
+   <% Outing.all_as_objects.each do |single| %>
+     <li>Outing ID -<%= single.id %>  Course ID -<%=single.course_id%>  Golfer ID -<%=single.golfer_id%>  Front 9 -<%=single.front_9_score%>  Back 9 -<%=single.back_9_score%></li>
+   <% end %>
+</ul>
+
+<form action="/update_outing">
+  <select name="outing_id">
+    <% Outing.all_as_objects.each do |single| %>
+      <option value="<%= single.id %>"><%= single.id %></option>
+    <% end %>
+    <input type="numbers" placeholder="Enter New Front 9 Score" name="front">
+    <input type="numbers" placeholder="Enter New Back 9 Score" name="back">
+  </select>
+  
+  <input type="submit">
+</form>

@@ -36,8 +36,8 @@ class Outing
   end
   
   #method turns new inputs into arguments to update a single line of a database
-  def self.save(front, back, outing_id, golferid, courseid)
-    CONNECTION.execute("UPDATE outings SET front_9_score = #{front}, back_9_score = #{back} WHERE id = #{outing_id} AND golfer_id = #{golferid} AND course_id = #{courseid};")
+  def self.save(front, back, outing_id)
+    CONNECTION.execute("UPDATE outings SET front_9_score = #{front}, back_9_score = #{back} WHERE id = #{outing_id};")
      
     return self
   end
