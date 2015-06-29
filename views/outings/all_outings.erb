@@ -1,17 +1,18 @@
 All Outings
 
-<ul>
-   <% Course.all_as_objects.each do |course| %>
-     <li>Course ID -<%= course.id %>  Course Name -<%=course.name%></li>
-   <% end %>
-</ul>
+<table>
+ 
+   <% @all_outings.each do |order| %>
 
-<ul>
-   <% Outing.all_as_objects.each do |outing| %>
-  
-     <li>Outing ID -<%= outing.id %>  Course ID -<%=outing.course_id%>   Golfer ID -<%=outing.golfer_id%>  Front 9 Score -<%=outing.front_9_score%>  Back 9 Score -<%=outing.back_9_score%>  18 Hole Score -<%=outing.totalscore%></li>
+     <tr>
+       <td> <%=order["course"]%> </td>
+       <td> <%=order["golfer"]%> </td>
+       <td> <%=order["front_9_score"]%> </td>
+       <td> <%=order["back_9_score"]%> </td>
+     </tr>
+      
    <% end %>
-</ul>
+</table>
 
 <ul>
   <a href="/homepage">Home</a>

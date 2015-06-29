@@ -1,0 +1,18 @@
+Which golfer would you like to update?
+
+<ul>
+   <% Golfer.all_as_objects.each do |single| %>
+     <li>Golfer ID -<%= single.id %>  Name -<%=single.name%></li>
+   <% end %>
+</ul>
+
+<form action="/update_golfer">
+  <select name="golfer_id">
+    <% Golfer.all_as_objects.each do |single| %>
+      <option value="<%= single.id %>"><%= single.id %></option>
+    <% end %>
+    <input type="text" placeholder="Enter New Name" name="name">
+  </select>
+  
+  <input type="submit">
+</form>

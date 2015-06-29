@@ -10,3 +10,33 @@ get "/add_golfer" do
   Golfer.add(golfer_options)
   erb :"/outings/add_outing_form"
 end
+
+get "/remove_golfer_form" do
+  erb :"/golfers/remove_golfer_form"
+end
+
+get "/remove_golfer" do
+  
+  if Golfer.remove_golfer(params["golfer_id"].to_i)
+    erb :"/golfers/remove_golfer"
+  else
+    erb :"/golfers/remove_golfailure"
+  end
+  
+end
+
+get "/update_golfer_form" do
+  erb :"/golfers/update_golfer_form"
+end
+
+get "/update_golfer" do
+  binding.pry
+  Golfer.save(params["name"], params["golfer_id"].to_i)
+  erb :"/golfers/update_golfer"
+end
+
+get "/save_golfer/:x" do
+  \
+ 
+  erb :"/golfers/save_success"
+end

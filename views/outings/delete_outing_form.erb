@@ -1,0 +1,17 @@
+Which outing would you like to remove?
+
+<ul>
+   <% Outing.all_as_objects.each do |single| %>
+     <li>Outing ID -<%= single.id %>  Course ID -<%=single.course_id%>  Golfer ID -<%=single.golfer_id%>  Front 9 Score -<%=single.front_9_score%>   Back 9 Score -<%=single.back_9_score%></li>
+   <% end %>
+</ul>
+
+<form action="/delete_outing">
+  <select name="course_id">
+    <% Outing.all_as_objects.each do |single| %>
+      <option value="<%= single.id %>"><%= single.id %></option>
+    <% end %>
+  </select>
+  
+  <input type="submit">
+</form>

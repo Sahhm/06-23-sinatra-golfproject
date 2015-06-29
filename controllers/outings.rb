@@ -1,4 +1,6 @@
 get "/all_outings" do
+  
+  @all_outings = Outing.all_join
   erb :"outings/all_outings"
 end
 
@@ -21,4 +23,14 @@ end
 get "/leaderboard" do
   
   erb :"outings/leaderboard"
+end
+
+get "/delete_outing_form" do
+  erb :"outings/delete_outing_form"
+end
+
+get "/delete_outing" do
+  Outing.remove(params["course_id"].to_i)
+  
+  erb :"outings/delete_outing"
 end

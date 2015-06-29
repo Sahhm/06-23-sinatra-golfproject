@@ -42,5 +42,12 @@ class Outing
     return self
   end
   
+  def self.all_join
+ results = CONNECTION.execute("SELECT courses.name AS course, golfers.name AS golfer, outings.front_9_score, outings.back_9_score FROM outings LEFT JOIN courses ON outings.course_id = courses.id LEFT JOIN golfers ON outings.golfer_id = golfers.id;")
+  
+
+  end
+    
+    
   
 end

@@ -17,9 +17,18 @@ class Golfer
    
   end
   
+  def self.remove_golfer(gid)
+    result = CONNECTION.execute("SELECT id, course_id, totalscore FROM outings WHERE golfer_id = #{gid};")
+    if result == []
+      CONNECTION.execute("DELETE FROM golfer WHERE id = #{gid};")
+    else
+      false
+    end
+  end
+  
   #method turns new inputs into arguments to update a single line of a database
-  def self.save(front, back, outing_id, golferid, courseid)
-    CONNECTION.execute("UPDATE courses SET handicap = #{new_handicap} WHERE id = #{golfer_id};")
+  def self.save(new_name, golfer_id)
+    CONNECTION.execute("UPDATE golfers SET name = '#{new_name}' WHERE id = #{golfer_id};")
      
     return self
   end
