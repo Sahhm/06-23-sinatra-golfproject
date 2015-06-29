@@ -1,0 +1,12 @@
+<ul>
+
+  <%Outing.leader(params["course_id"].to_i).each do |order| %>
+     <li>Golfer ID -<%=order.golfer_id%>  Front 9 Score -<%=order.front_9_score%>  Back 9 Score -<%=order.back_9_score%>  18 Hole Score -<%=order.totalscore%></li>
+  <% end %>
+   
+</ul>
+
+<br>
+<ul>
+  <a href="/homepage">Home</a>
+</ul>

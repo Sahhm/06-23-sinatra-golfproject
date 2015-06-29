@@ -1,0 +1,10 @@
+<form action="/leaderboard">
+  <select name="course_id">
+    <% Course.all_as_objects.each do |place| %>
+      <option value="<%= place.id %>"><%= place.name %></option>
+    <% end %>
+  </select>
+     <br>
+    
+      <input type="submit">
+  </form>

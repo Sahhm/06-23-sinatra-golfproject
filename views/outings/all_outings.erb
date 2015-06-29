@@ -9,7 +9,7 @@ All Outings
 <ul>
    <% Outing.all_as_objects.each do |outing| %>
   
-     <li>Outing ID -<%= outing.id %>  Course ID -<%=outing.course_id%>   Golfer ID -<%=outing.golfer_id%>  Front 9 Score -<%=outing.front_9_score%>  Back 9 Score -<%=outing.back_9_score%></li>
+     <li>Outing ID -<%= outing.id %>  Course ID -<%=outing.course_id%>   Golfer ID -<%=outing.golfer_id%>  Front 9 Score -<%=outing.front_9_score%>  Back 9 Score -<%=outing.back_9_score%>  18 Hole Score -<%=outing.totalscore%></li>
    <% end %>
 </ul>
 
