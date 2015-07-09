@@ -1,0 +1,8 @@
+<form action="/handicap">
+ 
+  <select name="golfer_id">
+    <% Golfer.all_as_objects.each do |golf| %>
+      <option value="<%= golf.id %>"><%= golf.name %></option>
+    <% end %>
+  <input type="submit">
+</form>

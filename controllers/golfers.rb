@@ -40,3 +40,14 @@ get "/save_golfer/:x" do
  
   erb :"/golfers/save_success"
 end
+
+get "/handicap_form" do
+  erb :"/golfers/handicap_form"
+end
+
+get "/handicap" do
+  Golfer.total_handicap(params["golfer_id"].to_i)
+  
+  
+  erb :"/golfers/handicap"
+end

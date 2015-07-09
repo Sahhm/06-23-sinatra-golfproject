@@ -33,5 +33,32 @@ class Golfer
     return self
   end
   
+  def self.total_handicap(golfer)
+    
+    results = CONNECTION.execute("SELECT golfers.name AS golfer, courses.front_9_par AS frontpar, courses.back_9_par AS backpar, outings.front_9_score AS frontscore, outings.back_9_score AS backscore FROM outings LEFT JOIN courses ON outings.course_id = courses.id LEFT JOIN golfers ON outings.golfer_id = golfers.id WHERE golfer = '#{golfer}';")
+    results_as_objects = []
+   
+    results.each do |result_hash|
+   
+      results_as_objects << self.new(result_hash)
+  
+    end
+   
+   return results_as_objects
+    
+  end
+  
+  def rounds_played(golfid)
+    rounds = CONNECTION.execute("SELECT COUNT (id) FROM outings where golfer_id=#{golfid};")
+  
+    return rounds
+  end
+  
+ 
+  
+
+  
+  
+  
   
 end

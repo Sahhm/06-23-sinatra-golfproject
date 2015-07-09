@@ -1,0 +1,189 @@
+@media all and (max-width: 600px){
+  .menu {
+    height: 50px;
+    background-color: gray;
+  }
+  
+  .imgheader {
+    position: fixed;
+    top: 50px;
+    margin-left: -450px;
+    left: 50%;
+    height: 400px;
+    width: 900px;
+  }
+  .hamburgericon {
+    height: 50px;
+    width: auto;
+    float: right;
+   
+  }
+  body {
+    margin: 0px;
+  }
+  
+  .main {
+    position: relative;
+    display: none;
+  }
+  
+  .menubutton{
+    height: 75px;
+    width: 100%;
+    color: black;
+    z-index: 100;
+    position: relative;
+    background-color: blanchedalmond;
+  }
+  
+  .hamburger {
+    position: absolute;
+    height: 225px;
+    width: 100%;
+    top: 90px;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  h1 {
+    text-align: center;
+    position: relative;
+    margin: 0;
+   
+    
+  }
+  button {
+    padding: 0;
+    border: 0;
+    float: right;
+    z-index: 100;
+  }
+  
+  .list1 {
+    float: left;
+    width: 40%;
+  }
+  
+  .list2 {
+    float: right;
+    width: 40%;
+    margin-right: 20%;
+  }
+  
+  .choose {
+    margin-top: 200px;
+    text-align: center;
+  }
+  
+  ul {
+    margin-top: 0;
+    font-size: 12px;
+  }
+  
+  p {
+    margin-bottom: 3px;
+    font-size: 20px;
+    margin-left: -150px;
+    left: 30%;
+  }
+}
+
+@media all and (min-width: 601px) {
+  .menu {
+    height: 50px;
+    background-color: gray;
+  }
+
+  .imgheader {
+    position: fixed;
+    top: 50px;
+    margin-left: -450px;
+    left: 50%;
+    height: 400px;
+    width: 900px;
+  }
+  .hamburgericon {
+    height: 50px;
+    width: auto;
+    float: right;
+    display: none;
+ 
+  }
+  body {
+    margin: 0px;
+  }
+
+  .main {
+    position: relative;
+  
+  }
+
+  .menubutton{
+    height: 75px;
+    width: 100%;
+    color: black;
+    z-index: 100;
+    position: relative;
+    background-color: blanchedalmond;
+  }
+
+  .hamburger {
+    position: absolute;
+    height: 225px;
+    width: 100%;
+    top: 90px;
+    display: none;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  h1 {
+    text-align: center;
+    position: relative;
+    margin: 0;
+ 
+  
+  }
+  button {
+    padding: 0;
+    border: 0;
+    float: right;
+    z-index: 100;
+  }
+
+  .list1 {
+    float: left;
+    width: 40%;
+  }
+
+  .list2 {
+    float: right;
+    width: 40%;
+    margin-right: 20%;
+  }
+
+  .choose {
+    margin-top: 200px;
+    text-align: center;
+  }
+
+  ul {
+    margin-top: 0;
+    font-size: 12px;
+  }
+
+  p {
+    margin-bottom: 3px;
+    font-size: 20px;
+    margin-left: -150px;
+    left: 30%;
+  }
+  }
+  
+  
+  
+}

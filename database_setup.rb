@@ -8,3 +8,7 @@ CONNECTION.execute("CREATE TABLE IF NOT EXISTS outings (id INTEGER PRIMARY KEY, 
 
 # Get results as an Array of Hashes.
 CONNECTION.results_as_hash = true
+
+
+
+
