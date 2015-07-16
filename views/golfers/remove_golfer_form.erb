@@ -4,6 +4,8 @@ Remove a Golfer
   <select name="golfer_id">
     <% Golfer.all_as_objects.each do |club| %>
       <option value="<%= club.id %>"><%= club.name %></option>
+      <%golf_id = session["id"]%>
+      <%binding.pry%>
     <% end %>
   </select>
 <br> 

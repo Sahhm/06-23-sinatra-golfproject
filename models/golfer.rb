@@ -1,20 +1,58 @@
 require_relative "ClassMethods.rb"
 require_relative "InstanceMethods.rb"
+require "bcrypt"
 
-class Golfer
+class Golfer 
   
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
+  include BCrypt
   
   attr_reader :id
-  attr_accessor :name, :handicap
+  attr_accessor :name, :handicap, :password, :email
   
   def initialize(outing_options = {})
     
     @id = outing_options["id"]
     @name = outing_options["name"]
     @handicap = outing_options["handicap"]
+    @email = outing_options["email"]
+    @password = outing_options["password"]
    
+  end
+  
+  
+  def self.password
+      @password ||= Password.new(password_hash)
+  end
+  
+  def self.password=(new_password)
+      @password = Password.create(new_password)
+      self.password_hash = @password
+  end
+  
+  def self.create(golfer_options)
+    @user = Golfer.new(golfer_options)
+    golfer_options["password"] = BCrypt::Password.create(golfer_options["password"])
+    
+    Golfer.add(golfer_options)
+  end
+  
+  def self.find_by_email(mail)
+    
+    
+    results = self.new(CONNECTION.execute("SELECT * FROM golfers WHERE email = '#{mail}';").first)
+   
+   return results
+  end
+  
+  def login(mail, pass)
+    @user = Golfer.find_by_email(mail)
+    if @user.password == pass
+      give_token
+    else
+      false
+    end
   end
   
   def self.remove_golfer(gid)
@@ -26,9 +64,17 @@ class Golfer
     end
   end
   
+  
   #method turns new inputs into arguments to update a single line of a database
-  def self.save(new_name, golfer_id)
-    CONNECTION.execute("UPDATE golfers SET name = '#{new_name}' WHERE id = #{golfer_id};")
+  def self.save(new_name, new_email, new_password, golfer_id)
+    CONNECTION.execute("UPDATE golfers SET name = '#{new_name}', email = '#{new_email}', password = '#{new_password}' WHERE id = #{golfer_id};")
+     
+    return self
+  end
+  
+  #method turns new inputs into arguments to update a single line of a database
+  def self.save(new_name, new_email, new_password, golfer_id)
+    CONNECTION.execute("UPDATE golfers SET name = '#{new_name}', email = '#{new_email}', password = '#{new_password}' WHERE id = #{golfer_id};")
      
     return self
   end

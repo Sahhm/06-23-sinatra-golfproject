@@ -1,6 +1,9 @@
 require "pry"
 require "sinatra"
 require "sinatra/reloader"
+require "bcrypt"
+
+enable :sessions
 
 # SQL/Database
 require "sqlite3"
